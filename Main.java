@@ -1,9 +1,9 @@
-package flashcards;
 import java.io.File;
 import java.util.Scanner;
 
 public class Main {
     // Main
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
         final String[] FLAGS = {"-import", "-export"};
         boolean importFlag = false;
@@ -39,37 +39,19 @@ public class Main {
 
             // Perform the action
             switch (action) {
-                case "add":
-                    flashcards.addCard(scan);
-                    break;
-                case "remove":
-                    flashcards.removeCard(scan);
-                    break;
-                case "import":
-                    flashcards.importCards(scan, importFile);
-                    break;
-                case "export":
-                    flashcards.exportCards(scan, exportFile);
-                    break;
-                case "ask":
-                    flashcards.ask(scan);
-                    break;
-                case "exit":
+                case "add" -> flashcards.addCard(scan);
+                case "remove" -> flashcards.removeCard(scan);
+                case "import" -> flashcards.importCards(scan, importFile);
+                case "export" -> flashcards.exportCards(scan, exportFile);
+                case "ask" -> flashcards.ask(scan);
+                case "exit" -> {
                     flashcards.printOutput("Bye bye!");
                     exit = true;
-                    break;
-                case "log":
-                    flashcards.log(scan);
-                    break;
-                case "hardest card":
-                    flashcards.hardestCard();
-                    break;
-                case "reset stats":
-                    flashcards.resetStats();
-                    break;
-                default:
-                    flashcards.printOutput("Invalid action");
-                    break;
+                }
+                case "log" -> flashcards.log(scan);
+                case "hardest card" -> flashcards.hardestCard();
+                case "reset stats" -> flashcards.resetStats();
+                default -> flashcards.printOutput("Invalid action");
             }
         } while (!exit);
 

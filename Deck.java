@@ -1,15 +1,13 @@
-package flashcards;
-
 import java.io.*;
 import java.time.LocalDate;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Deck {
-    private ArrayList<String> terms;
-    private ArrayList<String> definitions;
-    private ArrayList<Integer> mistakes;
-    private ArrayList<String> logs;
+    final private ArrayList<String> terms;
+    final private ArrayList<String> definitions;
+    final private ArrayList<Integer> mistakes;
+    final private ArrayList<String> logs;
 
     // Constructor
     public Deck() {
@@ -58,6 +56,7 @@ public class Deck {
     }
 
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public int readFile(File file) {
         int changes = 0;
 
@@ -98,7 +97,7 @@ public class Deck {
 
 
     // Menu Functions
-
+    
     public void addCard(Scanner scan) {
         // Get the term
         printOutput("The card:");
@@ -168,6 +167,7 @@ public class Deck {
     }
 
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public void exportCards(Scanner scan, File file) {
         if (file == null){
             // Get the file name
@@ -231,6 +231,7 @@ public class Deck {
     }
 
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public void log(Scanner scan) {
         // Get the file name
         printOutput("File name:");
